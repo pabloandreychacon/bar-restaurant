@@ -1,9 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import { Trophy, Users, Tv, GlassWater } from 'lucide-react';
 
 const AboutPage = () => {
-  const { t } = useTranslation();
-
   const stats = [
     { icon: <Tv />, label: 'Pantallas Gigantes', value: '15+' },
     { icon: <Users />, label: 'Capacidad Fanáticos', value: '250+' },

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LayoutDashboard, Package, Layers, Settings, LogOut, Lock } from 'lucide-react';
+import { Package, Layers, Settings, LogOut, Lock } from 'lucide-react';
 import { AdminProducts } from '../components/admin/AdminProducts';
 import { AdminCategories } from '../components/admin/AdminCategories';
 import { AdminSettings } from '../components/admin/AdminSettings';

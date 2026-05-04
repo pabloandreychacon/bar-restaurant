@@ -24,7 +24,7 @@ interface Category {
 }
 
 const ProductsPage = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);

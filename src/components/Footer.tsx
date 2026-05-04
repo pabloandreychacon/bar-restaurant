@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Globe, Mail, Phone, MapPin, Music2 } from 'lucide-react';
+import { Globe, Music2 } from 'lucide-react';
 import { getSettings } from '../utils/settings';
 
 const Footer = () => {

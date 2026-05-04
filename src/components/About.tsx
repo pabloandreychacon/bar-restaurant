@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Star } from 'lucide-react';
 import { getSettings } from '../utils/settings';
 
 const About = () => {
-  const { t } = useTranslation();
   const [businessName, setBusinessName] = useState('Barracos Bar');
 
   useEffect(() => {

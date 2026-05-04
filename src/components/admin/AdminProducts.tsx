@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Package, Plus, Edit2, Trash2, Upload, X, Check, AlertCircle } from 'lucide-react';
+import { Package, Plus, Edit2, Trash2, Upload, X } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { defaultSettings, getSettings, getCurrencySymbol } from '../../utils/settings';
 import { joinBilingualText, splitBilingualText } from '../../utils/bilingual';
