@@ -82,6 +82,12 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Qr Code */}
+        <div className="flex justify-center">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=https%3A%2F%2Fbarracosbar.netlify.app%2F&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />
+        </div>
+
+        {/* Bottom bar */}
         <div className="border-t border-stadium-grey pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
           <p>{t('footer.rights')}</p>
           <div className="flex gap-6">
