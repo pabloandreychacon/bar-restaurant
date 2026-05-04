@@ -4,10 +4,6 @@ import { supabase } from '../../lib/supabase';
 import { defaultSettings, getSettings, getCurrencySymbol } from '../../utils/settings';
 import { joinBilingualText, splitBilingualText } from '../../utils/bilingual';
 
-interface AdminProductsProps {
-  t: any;
-}
-
 interface Product {
   Id?: number;
   Name: string;
@@ -29,7 +25,7 @@ interface Category {
   IdBusiness: number;
 }
 
-export function AdminProducts({ t }: AdminProductsProps) {
+export function AdminProducts() {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Package, Layers, Settings, LogOut, Lock } from 'lucide-react';
 import { AdminProducts } from '../components/admin/AdminProducts';
 import { AdminCategories } from '../components/admin/AdminCategories';
@@ -8,7 +7,6 @@ import { getSettings } from '../utils/settings';
 import bcrypt from 'bcryptjs';
 
 const Admin = () => {
-  const { t } = useTranslation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [activeTab, setActiveTab] = useState<'products' | 'categories' | 'settings'>('products');
   const [password, setPassword] = useState('');
@@ -144,7 +142,7 @@ const Admin = () => {
       {/* Main Content */}
       <main className="flex-grow ml-64 p-12">
         <div className="">
-          {activeTab === 'products' && <AdminProducts t={t} />}
+          {activeTab === 'products' && <AdminProducts />}
           {activeTab === 'categories' && <AdminCategories />}
           {activeTab === 'settings' && <AdminSettings />}
         </div>
