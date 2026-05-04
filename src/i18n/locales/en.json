@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Our Menu",
+    "about": "About Us",
+    "contact": "Contact",
+    "reservations": "Reservations",
+    "admin": "Admin",
+    "login": "Login"
+  },
+  "hero": {
+    "title": "THE ULTIMATE STADIUM BURGER",
+    "subtitle": "Experience the roar of the crowd with our triple-stacked beef, melting cheddar, and signature stadium sauce. Limited time offer.",
+    "cta": "CLAIM OFFER",
+    "reservations": "RESERVATIONS"
+  },
+  "footer": {
+    "about": "Barracos Bar is the ultimate destination for sports fans. Enjoy the best food, ice-cold beers and an electric atmosphere designed to live every game as if you were in the stadium.",
+    "navigation": "NAVIGATION",
+    "follow": "FOLLOW US",
+    "legal": "LEGAL",
+    "rights": "© 2026 Barracos Bar. Made for Fans."
+  }
+}

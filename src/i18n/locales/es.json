@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "menu": "Nuestra Carta",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "reservations": "Reservaciones",
+    "admin": "Admin",
+    "login": "Login"
+  },
+  "hero": {
+    "title": "LA MEJOR HAMBURGUESA DEL ESTADIO",
+    "subtitle": "Vive el rugido de la multitud con nuestra carne de res de triple capa, cheddar derretido y salsa exclusiva del estadio. Oferta por tiempo limitado.",
+    "cta": "RECLAMAR OFERTA",
+    "reservations": "RESERVACIONES"
+  },
+  "footer": {
+    "about": "Barracos Bar es el destino definitivo para los fanáticos del deporte. Disfruta de la mejor comida, cervezas heladas y una atmósfera eléctrica diseñada para vivir cada partido como si estuvieras en el estadio.",
+    "navigation": "NAVEGACIÓN",
+    "follow": "SÍGUENOS",
+    "legal": "LEGAL",
+    "rights": "© 2026 Barracos Bar. Hecho para Fans."
+  }
+}

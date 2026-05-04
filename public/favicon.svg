@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
+  <!-- Minimalist Martini Cup -->
+  <path d="M8 8h16l-8 9-8-9z" fill="#ff9100"/>
+  <path d="M16 17v8" stroke="#ff9100" stroke-width="2" stroke-linecap="round"/>
+  <path d="M11 25h10" stroke="#ff9100" stroke-width="2" stroke-linecap="round"/>
+  <!-- Decorative bubble/olive -->
+  <circle cx="14" cy="11" r="1.5" fill="#ffffff" opacity="0.8"/>
+</svg>
