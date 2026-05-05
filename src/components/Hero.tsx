@@ -158,8 +158,8 @@ const Hero = () => {
         </button>
       </div>
 
-      {/* Indicators - Moved to bottom left */}
-      <div className="absolute bottom-10 left-8 z-30 flex gap-3">
+      {/* Indicators - Centered */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 flex gap-3">
         {products.map((_, index) => (
           <button
             key={index}
