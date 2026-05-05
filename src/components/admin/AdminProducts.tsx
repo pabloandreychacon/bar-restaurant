@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Package, Plus, Edit2, Trash2, Upload, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../../lib/supabase';
 import { defaultSettings, getSettings, getCurrencySymbol } from '../../utils/settings';
 import { joinBilingualText, splitBilingualText } from '../../utils/bilingual';
@@ -26,6 +27,7 @@ interface Category {
 }
 
 export function AdminProducts() {
+  const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
@@ -138,13 +140,13 @@ export function AdminProducts() {
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm('¿Está seguro de eliminar este producto?')) return;
+    if (!confirm(t('admin.deleteProduct'))) return;
     try {
       const { error } = await supabase.from('Products').delete().eq('Id', id);
       if (error) throw error;
       loadData();
     } catch (err) {
-      alert('Error al eliminar');
+      alert(t('admin.deleteProduct'));
     }
   };
 
@@ -174,7 +176,7 @@ export function AdminProducts() {
       setEditingProduct(null);
       loadData();
     } catch (err) {
-      alert('Error al guardar');
+      alert(t('admin.saveError'));
     }
   };
 
@@ -183,7 +185,7 @@ export function AdminProducts() {
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-display font-bold text-white uppercase tracking-wider flex items-center gap-2">
           <Package className="text-stadium-orange" />
-          Productos
+          {t('admin.products').toUpperCase()}
         </h2>
         <button
           onClick={() => {
@@ -197,7 +199,7 @@ export function AdminProducts() {
           className="bg-stadium-orange text-black px-4 py-2 rounded-sm font-bold flex items-center gap-2 hover:bg-white transition-all"
         >
           <Plus size={20} />
-          NUEVO PRODUCTO
+          {t('admin.newProduct').toUpperCase()}
         </button>
       </div>
 
@@ -221,7 +223,7 @@ export function AdminProducts() {
                 </div>
                 {!product.Active && (
                   <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-                    <span className="bg-red-600 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest">Inactivo</span>
+                    <span className="bg-red-600 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest">{t('admin.inactive')}</span>
                   </div>
                 )}
               </div>
@@ -239,33 +241,33 @@ export function AdminProducts() {
         <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm overflow-y-auto">
           <div className="bg-stadium-grey w-full max-w-2xl border border-stadium-orange/30 rounded-sm p-8 my-auto">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl font-display font-bold uppercase">{editingProduct ? 'Editar' : 'Nuevo'} Producto</h3>
+              <h3 className="text-xl font-display font-bold uppercase">{editingProduct ? t('admin.editProduct') : t('admin.newProduct')}</h3>
               <button onClick={() => setIsModalOpen(false)} className="text-gray-400 hover:text-white"><X /></button>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Nombre (ES)</label>
+                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{t('admin.nameEs')}</label>
                   <input required value={formData.NameEs} onChange={e => setFormData({ ...formData, NameEs: e.target.value })} className="w-full bg-stadium-dark border border-white/10 rounded-sm px-4 py-2 focus:border-stadium-orange outline-none" />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Nombre (EN)</label>
+                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{t('admin.nameEn')}</label>
                   <input required value={formData.NameEn} onChange={e => setFormData({ ...formData, NameEn: e.target.value })} className="w-full bg-stadium-dark border border-white/10 rounded-sm px-4 py-2 focus:border-stadium-orange outline-none" />
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Descripción (ES)</label>
+                <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{t('admin.descriptionEs')}</label>
                 <textarea value={formData.DescriptionEs} onChange={e => setFormData({ ...formData, DescriptionEs: e.target.value })} className="w-full bg-stadium-dark border border-white/10 rounded-sm px-4 py-2 focus:border-stadium-orange outline-none h-20" />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Precio</label>
+                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{t('admin.price')}</label>
                   <input type="number" step="0.01" required value={formData.Price} onChange={e => setFormData({ ...formData, Price: e.target.value })} className="w-full bg-stadium-dark border border-white/10 rounded-sm px-4 py-2 focus:border-stadium-orange outline-none" />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Categoría</label>
+                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">{t('admin.category')}</label>
                   <select required value={formData.CategoryId} onChange={e => setFormData({ ...formData, CategoryId: e.target.value })} className="w-full bg-stadium-dark border border-white/10 rounded-sm px-4 py-2 focus:border-stadium-orange outline-none">
-                    <option value="">Seleccionar...</option>
+                    <option value="">{t('admin.selectCategory')}</option>
                     {categories.map(c => <option key={c.Id} value={c.Id}>{c.DisplayName}</option>)}
                   </select>
                 </div>
@@ -273,7 +275,7 @@ export function AdminProducts() {
               <div>
                 <label className="block text-xs font-bold text-gray-400 uppercase mb-2 flex items-center gap-2">
                   <Upload size={14} className="text-stadium-orange" />
-                  Imagen del Producto
+                  {t('admin.productImage')}
                 </label>
 
                 <div
@@ -286,7 +288,7 @@ export function AdminProducts() {
                   {uploading ? (
                     <div className="flex flex-col items-center gap-2">
                       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-stadium-orange"></div>
-                      <span className="text-xs font-bold text-stadium-orange uppercase">Subiendo...</span>
+                      <span className="text-xs font-bold text-stadium-orange uppercase">{t('admin.uploading')}</span>
                     </div>
                   ) : formData.ImageUrl ? (
                     <div className="relative group w-full aspect-video rounded-sm overflow-hidden">
@@ -311,8 +313,8 @@ export function AdminProducts() {
                         <Upload size={24} />
                       </div>
                       <div className="text-center">
-                        <p className="text-sm font-bold text-white mb-1">Arrastra una imagen aquí</p>
-                        <p className="text-[10px] text-gray-500 uppercase tracking-widest">o haz clic para buscar</p>
+                        <p className="text-sm font-bold text-white mb-1">{t('admin.dragImage')}</p>
+                        <p className="text-[10px] text-gray-500 uppercase tracking-widest">{t('admin.clickToBrowse')}</p>
                       </div>
                       <input
                         type="file"
@@ -327,15 +329,15 @@ export function AdminProducts() {
               <div className="flex gap-6 pt-4">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input type="checkbox" checked={formData.IsOffer} onChange={e => setFormData({ ...formData, IsOffer: e.target.checked })} className="accent-stadium-orange" />
-                  <span className="text-sm font-bold uppercase tracking-wider">Oferta</span>
+                  <span className="text-sm font-bold uppercase tracking-wider">{t('admin.offer')}</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input type="checkbox" checked={formData.Active} onChange={e => setFormData({ ...formData, Active: e.target.checked })} className="accent-stadium-orange" />
-                  <span className="text-sm font-bold uppercase tracking-wider">Activo</span>
+                  <span className="text-sm font-bold uppercase tracking-wider">{t('admin.active')}</span>
                 </label>
               </div>
               <button type="submit" className="w-full bg-stadium-orange text-black font-bold py-4 rounded-sm hover:bg-white transition-all mt-6 uppercase tracking-widest">
-                Guardar Producto
+                {t('admin.saveProduct')}
               </button>
             </form>
           </div>

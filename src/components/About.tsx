@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { getSettings } from '../utils/settings';
 
 const About = () => {
+  const { t } = useTranslation();
   const [businessName, setBusinessName] = useState('Barracos Bar');
 
   useEffect(() => {
@@ -22,29 +24,29 @@ const About = () => {
   const reviews = [
     {
       id: 1,
-      name: "CARLOS 'EL TORO' R.",
-      role: `FANÁTICO DE ${businessName}`,
-      text: `¡La mejor atmósfera para ver la Champions! Las alitas con salsa ${businessName} son de otro planeta.`,
+      name: t('reviews.review1.name'),
+      role: t('reviews.review1.role', { businessName }),
+      text: t('reviews.review1.text', { businessName }),
       rating: 5,
-      avatar: "https://i.pravatar.cc/150?u=carlos"
+      avatar: "/images/150.png"
     },
     {
       id: 2,
-      name: "SOFÍA MÉNDEZ",
-      role: `SOCIA VIP ${businessName}`,
-      text: "El servicio es rapidísimo incluso cuando el bar está a reventar. ¡Gritar un gol aquí es único!",
+      name: t('reviews.review2.name'),
+      role: t('reviews.review2.role', { businessName }),
+      text: t('reviews.review2.text', { businessName }),
       rating: 5,
-      avatar: "https://i.pravatar.cc/150?u=sofia"
+      avatar: "/images/151.png"
     }
   ];
 
   const gallery = [
-    "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=2071&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1560624052-449f5ddf0c31?q=80&w=2070&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1574966739982-2b783cb1f5f3?q=80&w=2070&auto=format&fit=crop"
+    "/images/comunity.png",
+    "/images/hero-1.png",
+    "/images/gastro.png",
+    "/images/beer.png",
+    "/images/wings.png",
+    "/images/interior.png"
   ];
 
   return (
@@ -57,36 +59,39 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 tracking-tighter uppercase">
-            ESTADIO <span className="text-stadium-orange">{businessName}</span>
+            {t('aboutComponent.title')} <span className="text-stadium-orange">{businessName}</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Step into the {businessName} experience. High-octane energy meets VIP sophistication in every corner of our arena.
+            {t('aboutComponent.subtitle')}
           </p>
         </div>
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-24">
           <div className="col-span-2 row-span-2 overflow-hidden rounded-sm group">
-            <img src={gallery[0]} alt="Stadium" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src={gallery[0]} alt="Stadium" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
           </div>
           <div className="overflow-hidden rounded-sm group aspect-square">
-            <img src={gallery[1]} alt="Bar" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src={gallery[1]} alt="Bar" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
           </div>
           <div className="overflow-hidden rounded-sm group aspect-square">
-            <img src={gallery[2]} alt="Lounge" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src={gallery[2]} alt="Lounge" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
           </div>
           <div className="overflow-hidden rounded-sm group aspect-square">
-            <img src={gallery[3]} alt="Beer" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src={gallery[3]} alt="Beer" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
           </div>
           <div className="overflow-hidden rounded-sm group aspect-square">
-            <img src={gallery[4]} alt="Wings" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src={gallery[4]} alt="Wings" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          <div className="overflow-hidden rounded-sm group aspect-square">
+            <img src={gallery[5]} alt="Bar Interior" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
           </div>
         </div>
 
         {/* Testimonials */}
         <div className="text-center mb-12">
           <h3 className="text-3xl font-display font-bold text-stadium-orange tracking-tighter uppercase mb-12">
-            GRITOS DE GOL
+            {t('aboutComponent.testimonialsTitle')}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {reviews.map((review) => (

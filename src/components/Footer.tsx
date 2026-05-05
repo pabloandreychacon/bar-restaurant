@@ -1,19 +1,30 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Globe, Music2 } from 'lucide-react';
 import { getSettings } from '../utils/settings';
 
 const Footer = () => {
   const { t } = useTranslation();
   const [businessName, setBusinessName] = useState('Barracos Bar');
+  const [contactInfo, setContactInfo] = useState({
+    email: 'reservas@Barracos Bar.com',
+    phone: '(506) 4000-1234',
+    address: 'Av. Principal de los Deportes, Edificio Barracos Bar'
+  });
 
   useEffect(() => {
     const fetchSettings = async () => {
       try {
         const settings = await getSettings();
-        if (settings?.businessName) {
-          setBusinessName(settings.businessName);
+        if (settings) {
+          if (settings.businessName) {
+            setBusinessName(settings.businessName);
+          }
+          setContactInfo({
+            email: settings.email,
+            phone: settings.phone,
+            address: settings.address
+          });
         }
       } catch (error) {
         console.error('Error fetching settings for footer:', error);
@@ -25,7 +36,7 @@ const Footer = () => {
   return (
     <footer className="bg-stadium-dark border-t border-stadium-orange/20 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand & About */}
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center gap-3 no-underline group mb-6">
@@ -48,8 +59,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4 text-sm">
               <li><Link to="/menu" className="text-gray-400 hover:text-white transition-colors">{t('nav.menu')}</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors">{t('nav.reservations')}</Link></li>
-              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">Eventos Deportivos</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors">{t('nav.contact')}</Link></li>
             </ul>
           </div>
 
@@ -59,40 +69,35 @@ const Footer = () => {
               {t('footer.follow')}
             </h4>
             <div className="flex space-x-4">
-              <a href="#" className="bg-stadium-grey p-2 rounded-full hover:bg-stadium-orange hover:text-black transition-all">
-                <Globe size={18} />
+              <a href="#" className="bg-stadium-grey w-9 h-9 flex items-center justify-center rounded-full hover:bg-stadium-orange hover:text-black transition-all font-bold text-sm" aria-label="Facebook">
+                F
               </a>
-              <a href="#" className="bg-stadium-grey p-2 rounded-full hover:bg-stadium-orange hover:text-black transition-all">
-                <Music2 size={18} />
+              <a href="#" className="bg-stadium-grey w-9 h-9 flex items-center justify-center rounded-full hover:bg-stadium-orange hover:text-black transition-all font-bold text-sm" aria-label="YouTube">
+                Y
+              </a>
+              <a href="#" className="bg-stadium-grey w-9 h-9 flex items-center justify-center rounded-full hover:bg-stadium-orange hover:text-black transition-all font-bold text-sm" aria-label="Instagram">
+                I
+              </a>
+              <a href="#" className="bg-stadium-grey w-9 h-9 flex items-center justify-center rounded-full hover:bg-stadium-orange hover:text-black transition-all font-bold text-sm" aria-label="TikTok">
+                T
               </a>
             </div>
           </div>
 
-          {/* Legal */}
-          <div>
-            <h4 className="text-stadium-orange font-bold text-sm tracking-widest mb-6 uppercase">
-              {t('footer.legal')}
-            </h4>
-            <ul className="space-y-4 text-sm">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Política de Privacidad</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Términos de Servicio</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Política de Cookies</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Accesibilidad</a></li>
-            </ul>
-          </div>
         </div>
 
         {/* Qr Code */}
         <div className="flex justify-center">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=https%3A%2F%2Fbarracosbar.netlify.app%2F&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" />
+          <img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=https%3A%2F%2Fbarracosbar.netlify.app%2F&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code" className='w-32 h-32' />
         </div>
 
         {/* Bottom bar */}
         <div className="border-t border-stadium-grey pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
           <p>{t('footer.rights')}</p>
-          <div className="flex gap-6">
-            <a href="mailto:reservas@Barracos Bar.com" className="hover:text-white transition-colors">reservas@Barracos Bar.com</a>
-            <span>(506) 4000-1234</span>
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+            <a href={`mailto:${contactInfo.email}`} className="hover:text-white transition-colors">Email: {contactInfo.email}</a>
+            <span>Phone: {contactInfo.phone}</span>
+            <span>Address: {contactInfo.address}</span>
           </div>
         </div>
       </div>

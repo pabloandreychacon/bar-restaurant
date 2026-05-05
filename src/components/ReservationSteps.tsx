@@ -1,24 +1,28 @@
-import { MapPin, Utensils, Zap, Clock } from 'lucide-react';
+import { MapPin, Utensils, Zap } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const ReservationSteps = () => {
+  const { t } = useTranslation();
+
   const steps = [
     {
       id: 1,
       icon: <MapPin className="text-stadium-orange" />,
-      title: "1. LLEGA AL ESTADIO",
-      description: "Estamos ubicados en el corazón de la zona deportiva. Contamos con amplio parqueo vigilado para tu comodidad."
+      title: t('reservationSteps.steps.step1.title'),
+      description: t('reservationSteps.steps.step1.description')
     },
     {
       id: 2,
       icon: <Utensils className="text-stadium-orange" />,
-      title: "2. PIDE TU MESA",
-      description: "Nuestro equipo de anfitrionas te recibirá para asignarte el mejor lugar frente a nuestras pantallas gigantes."
+      title: t('reservationSteps.steps.step2.title'),
+      description: t('reservationSteps.steps.step2.description')
     },
     {
       id: 3,
       icon: <Zap className="text-stadium-orange" />,
-      title: "3. VIVE LA PASIÓN",
-      description: "Disfruta de la mejor comida deportiva y cervezas heladas mientras apoyas a tu equipo favorito en vivo."
+      title: t('reservationSteps.steps.step3.title'),
+      description: t('reservationSteps.steps.step3.description')
     }
   ];
 
@@ -27,10 +31,10 @@ const ReservationSteps = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 tracking-tighter">
-            TU ASIENTO <span className="text-stadium-orange">RESERVADO</span>
+            {t('reservationSteps.title')} <span className="text-stadium-orange">{t('reservationSteps.titleHighlight')}</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            La experiencia del estadio se vive mejor en Barracos Bar. Sigue estos pasos para asegurar tu lugar en la jugada más importante de la noche.
+            {t('reservationSteps.subtitle')}
           </p>
         </div>
 
@@ -49,39 +53,42 @@ const ReservationSteps = () => {
             ))}
 
             <div className="flex flex-wrap gap-4 pt-4">
-              <button className="bg-stadium-orange text-black px-8 py-3 rounded-sm font-bold text-sm hover:bg-white transition-all">
-                CÓMO LLEGAR →
-              </button>
-              <button className="border border-white/20 hover:border-stadium-orange text-white px-8 py-3 rounded-sm font-bold text-sm transition-all">
-                VER LA CARTA
-              </button>
+              <Link to="/contact#map" className="bg-stadium-orange text-black px-8 py-3 rounded-sm font-bold text-sm hover:bg-white transition-all">
+                {t('reservationSteps.howToGetThere')}
+              </Link>
+              <Link to="/menu" className="border border-white/20 hover:border-stadium-orange text-white px-8 py-3 rounded-sm font-bold text-sm transition-all">
+                {t('reservationSteps.viewMenu')}
+              </Link>
             </div>
           </div>
 
-          <div className="relative">
+          {/* <div className="relative">
             <div className="absolute -inset-4 bg-stadium-orange/10 blur-3xl rounded-full" />
             <div className="relative rounded-sm overflow-hidden border border-white/10 shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1571266028243-e4733b0f0bb1?q=80&w=2070&auto=format&fit=crop"
-                alt="Bar Interior"
-                className="w-full h-[600px] object-cover"
-              />
+              <div className="w-full h-[600px] bg-stadium-grey/50 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-24 h-24 bg-stadium-orange/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Zap size={48} className="text-stadium-orange" />
+                  </div>
+                  <p className="text-gray-400 font-medium">Bar Interior</p>
+                </div>
+              </div>
               <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black via-black/80 to-transparent">
                 <div className="flex items-start gap-4">
                   <div className="bg-stadium-orange/20 p-2 rounded-sm">
                     <Clock size={24} className="text-stadium-orange" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg mb-1">ZONA DE JUEGO</h4>
-                    <p className="text-sm text-gray-400 mb-2">Av. Principal de los Deportes, Edificio Barracos Bar</p>
+                    <h4 className="font-bold text-lg mb-1">{t('reservationSteps.gameZone')}</h4>
+                    <p className="text-sm text-gray-400 mb-2">{t('reservationSteps.address')}</p>
                     <p className="text-xs font-bold text-stadium-orange uppercase tracking-widest">
-                      Abierto todos los días de 12:00 PM a 2:00 AM
+                      {t('reservationSteps.hours')}
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

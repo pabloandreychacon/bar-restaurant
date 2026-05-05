@@ -35,6 +35,7 @@ const Header = () => {
     { name: t('nav.home'), path: '/' },
     { name: t('nav.menu'), path: '/menu' },
     { name: t('nav.about'), path: '/about' },
+    { name: t('nav.contact'), path: '/contact' },
   ];
 
   return (
@@ -69,7 +70,7 @@ const Header = () => {
               className="flex items-center gap-2 text-[10px] font-bold border border-white/20 px-2 py-1 rounded-sm hover:border-stadium-orange hover:text-stadium-orange transition-all uppercase"
             >
               <Globe size={12} />
-              {i18n.language}
+              {i18n.language === 'es' ? 'EN' : 'ES'}
             </button>
 
             <Link to="/admin" className="text-gray-400 hover:text-white transition-colors">
@@ -77,7 +78,7 @@ const Header = () => {
             </Link>
 
             <Link
-              to="/contact"
+              to="/reservations"
               className="bg-stadium-orange text-black px-5 py-2 rounded-sm font-bold text-xs hover:bg-white transition-all uppercase tracking-widest"
             >
               {t('hero.reservations')}
@@ -90,7 +91,7 @@ const Header = () => {
               onClick={toggleLanguage}
               className="text-[10px] font-bold border border-white/20 px-2 py-1 rounded-sm uppercase"
             >
-              {i18n.language}
+              {i18n.language === 'es' ? 'EN' : 'ES'}
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -128,7 +129,7 @@ const Header = () => {
           </Link>
           <div className="pt-6 px-3">
             <Link
-              to="/contact"
+              to="/reservations"
               onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full bg-stadium-orange text-black text-center py-4 rounded-sm font-bold uppercase tracking-widest shadow-lg shadow-stadium-orange/20"
             >

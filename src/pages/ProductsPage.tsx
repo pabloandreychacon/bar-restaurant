@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../lib/supabase';
 import { defaultSettings, getCurrencySymbol, getSettings } from '../utils/settings';
 import { parseBilingualText } from '../utils/bilingual';
-import { Search, Filter, ShoppingBag } from 'lucide-react';
+import { Search, Filter } from 'lucide-react';
 
 interface Product {
   Id: number;
@@ -24,7 +24,7 @@ interface Category {
 }
 
 const ProductsPage = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
@@ -69,17 +69,17 @@ const ProductsPage = () => {
 
   return (
     <div className="bg-stadium-dark min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-64 flex items-center justify-center overflow-hidden">
+      {/* Header Section */}
+      <section className="relative h-96 flex items-center justify-center overflow-hidden group">
         <div className="absolute inset-0 bg-black/60 z-10" />
-        <img 
-          src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop" 
-          className="absolute inset-0 w-full h-full object-cover"
+        <img
+          src="/images/beers.png"
+          className="absolute inset-0 w-full h-full object-cover scale-105 animate-slow-zoom transition-transform duration-500 group-hover:scale-110"
           alt="Menu Header"
         />
-        <div className="relative z-20 text-center">
+        <div className="relative z-20 text-center animate-fade-in">
           <h1 className="text-5xl md:text-6xl font-display font-bold text-white tracking-tighter uppercase">
-            NUESTRA <span className="text-stadium-orange">CARTA</span>
+            {t('menu.title')} <span className="text-stadium-orange">{t('menu.titleHighlight')}</span>
           </h1>
           <div className="h-1 w-24 bg-stadium-orange mx-auto mt-4" />
         </div>
@@ -91,23 +91,21 @@ const ProductsPage = () => {
           <div className="flex flex-wrap gap-2 justify-center">
             <button
               onClick={() => setSelectedCategory('all')}
-              className={`px-6 py-2 rounded-sm font-bold text-xs uppercase tracking-widest transition-all ${
-                selectedCategory === 'all' 
-                ? 'bg-stadium-orange text-black' 
+              className={`px-6 py-2 rounded-sm font-bold text-xs uppercase tracking-widest transition-all ${selectedCategory === 'all'
+                ? 'bg-stadium-orange text-black'
                 : 'bg-stadium-grey text-gray-400 hover:text-white border border-white/5'
-              }`}
+                }`}
             >
-              TODOS
+              {t('menu.all')}
             </button>
             {categories.map(cat => (
               <button
                 key={cat.Id}
                 onClick={() => setSelectedCategory(cat.Id)}
-                className={`px-6 py-2 rounded-sm font-bold text-xs uppercase tracking-widest transition-all ${
-                  selectedCategory === cat.Id 
-                  ? 'bg-stadium-orange text-black' 
+                className={`px-6 py-2 rounded-sm font-bold text-xs uppercase tracking-widest transition-all ${selectedCategory === cat.Id
+                  ? 'bg-stadium-orange text-black'
                   : 'bg-stadium-grey text-gray-400 hover:text-white border border-white/5'
-                }`}
+                  }`}
               >
                 {cat.DisplayName}
               </button>
@@ -118,7 +116,7 @@ const ProductsPage = () => {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
             <input
               type="text"
-              placeholder="Buscar platillo..."
+              placeholder={t('menu.searchPlaceholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-stadium-grey border border-white/5 rounded-sm pl-12 pr-4 py-3 focus:border-stadium-orange outline-none transition-all"
@@ -136,14 +134,14 @@ const ProductsPage = () => {
             {filteredProducts.map((product) => (
               <div key={product.Id} className="bg-stadium-grey border border-white/5 rounded-sm overflow-hidden group hover:border-stadium-orange/30 transition-all flex flex-col h-full">
                 <div className="h-56 relative overflow-hidden">
-                  <img 
-                    src={product.ImageUrl || 'https://via.placeholder.com/400x300?text=No+Image'} 
-                    alt={product.Name} 
+                  <img
+                    src={product.ImageUrl || '/images/placeholder.png'}
+                    alt={product.Name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   {product.IsOffer && (
                     <div className="absolute top-4 left-4 bg-stadium-orange text-black text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-widest animate-pulse">
-                      OFERTA
+                      {t('menu.offer')}
                     </div>
                   )}
                 </div>
@@ -159,10 +157,11 @@ const ProductsPage = () => {
                   <p className="text-gray-400 text-sm mb-6 line-clamp-2">
                     {parseBilingualText(product.Description, i18n.language as 'es' | 'en')}
                   </p>
-                  <button className="mt-auto w-full bg-transparent border border-white/20 text-white font-bold py-3 rounded-sm text-xs uppercase tracking-widest hover:bg-stadium-orange hover:text-black hover:border-stadium-orange transition-all flex items-center justify-center gap-2 group">
+                  {/* Hidden until orders functionality is implemented */}
+                  {/* <button className="mt-auto w-full bg-transparent border border-white/20 text-white font-bold py-3 rounded-sm text-xs uppercase tracking-widest hover:bg-stadium-orange hover:text-black hover:border-stadium-orange transition-all flex items-center justify-center gap-2 group">
                     <ShoppingBag size={14} />
-                    Añadir al Pedido
-                  </button>
+                    {t('menu.addToOrder')}
+                  </button> */}
                 </div>
               </div>
             ))}
@@ -170,7 +169,7 @@ const ProductsPage = () => {
         ) : (
           <div className="text-center py-24 border border-dashed border-white/10 rounded-sm">
             <Filter size={48} className="mx-auto text-gray-600 mb-4" />
-            <p className="text-gray-400 font-bold uppercase tracking-widest">No se encontraron productos</p>
+            <p className="text-gray-400 font-bold uppercase tracking-widest">{t('menu.noProducts')}</p>
           </div>
         )}
       </div>

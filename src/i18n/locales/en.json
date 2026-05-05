@@ -12,13 +12,272 @@
     "title": "THE ULTIMATE STADIUM BURGER",
     "subtitle": "Experience the roar of the crowd with our triple-stacked beef, melting cheddar, and signature stadium sauce. Limited time offer.",
     "cta": "CLAIM OFFER",
-    "reservations": "RESERVATIONS"
+    "reservations": "RESERVATIONS",
+    "slides": {
+      "slide1": {
+        "title": "THE ULTIMATE STADIUM BURGER",
+        "badge": "LIMITED TIME OFFER"
+      },
+      "slide2": {
+        "title": "COLD BEER & BEST VIBES",
+        "badge": "HAPPY HOUR 4PM - 7PM"
+      },
+      "slide3": {
+        "title": "CATCH EVERY GAME LIVE",
+        "badge": "ULTRA HD SCREENS"
+      }
+    }
   },
   "footer": {
     "about": "Barracos Bar is the ultimate destination for sports fans. Enjoy the best food, ice-cold beers and an electric atmosphere designed to live every game as if you were in the stadium.",
     "navigation": "NAVIGATION",
     "follow": "FOLLOW US",
     "legal": "LEGAL",
-    "rights": "© 2026 Barracos Bar. Made for Fans."
+    "rights": " 2026 Barracos Bar. Made for Fans."
+  },
+  "reservations": {
+    "title": "RESERVE YOUR",
+    "titleHighlight": "TABLE",
+    "subtitle": "Secure your spot in the best sports atmosphere. Book now and experience the Barracos Bar vibe.",
+    "contactInfo": "Reservation Information",
+    "location": "Location",
+    "phone": "Phone",
+    "email": "Email",
+    "schedule": "Schedule",
+    "mondayThursday": "Monday - Thursday",
+    "fridaySaturday": "Friday - Saturday",
+    "sunday": "Sunday",
+    "completeReservation": "Complete Your Reservation",
+    "fullName": "Full Name",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "numberOfPeople": "Number of People",
+    "date": "Date",
+    "time": "Time",
+    "startTime": "Start Time",
+    "endTime": "End Time",
+    "selectTable": "Select Your Table",
+    "table": "Table",
+    "person": "person",
+    "people": "people",
+    "selectTime": "Select a time",
+    "loadingTables": "Loading available tables...",
+    "noTablesAvailable": "No tables available for this date and time.",
+    "selectDateTime": "Please select date and time to see available tables.",
+    "specialRequests": "Special Requests",
+    "specialRequestsPlaceholder": "Any dietary restrictions, seating preferences, special celebrations...",
+    "confirmReservation": "Confirm Reservation",
+    "reservationConfirmed": "Reservation Confirmed!",
+    "reservationConfirmedMessage": "We will contact you soon to confirm your reservation details.",
+    "selectTableError": "Please select a table.",
+    "reservationError": "Error creating reservation. Please try again.",
+    "sending": "Sending..."
+  },
+  "contact": {
+    "contactInfo": "Contact Information",
+    "location": "Location",
+    "phone": "Phone",
+    "email": "Email",
+    "schedule": "Schedule",
+    "mondayThursday": "Monday - Thursday",
+    "fridaySaturday": "Friday - Saturday",
+    "sunday": "Sunday",
+    "sendMessage": "Send Us a Message",
+    "fullName": "Full Name",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "subject": "Subject",
+    "reservation": "Reservation",
+    "event": "Private Event",
+    "feedback": "Feedback",
+    "other": "Other",
+    "message": "Message / Reservation Details",
+    "messagePlaceholder": "Tell us more (date, time, number of people...)",
+    "sendMessageButton": "Send Message",
+    "successMessage": "Message sent successfully. We will contact you soon.",
+    "viewOnMap": "View on Google Maps"
+  },
+  "about": {
+    "title": "MORE THAN A",
+    "titleHighlight": "BAR",
+    "subtitle": "Born from a passion for sports and the desire to create the ultimate sanctuary for true fans.",
+    "ourTeam": "Our Team",
+    "historyHighlight": "STORY",
+    "story1": "Founded in 2024, Barracos Bar emerged as a project among friends who couldn't find a place with the right atmosphere to experience major sporting events. We wanted screens that made you feel like you were on the field, sound that gave you goosebumps, and food that matched the excitement.",
+    "story2": "Today we are the city's reference meeting point. Every corner of our venue is designed with spectator comfort in mind, from acoustics to the strategic placement of our 15+ Ultra HD screens.",
+    "story3": "At Barracos Bar we don't just serve food and drinks; we serve unforgettable moments, shared goal celebrations and the camaraderie that only sports can generate.",
+    "experience": "THE",
+    "experienceHighlight": "Barracos Bar EXPERIENCE",
+    "experienceSubtitle": "We're not just a place to watch the game. We're the stadium outside the stadium.",
+    "stats": {
+      "screens": "Giant Screens",
+      "capacity": "Fan Capacity",
+      "events": "Live Events",
+      "beers": "Craft Beers"
+    },
+    "features": {
+      "sound": {
+        "title": "Immersive Sound",
+        "desc": "You'll feel every tackle, every shout, and every whistle as if you were in the stands."
+      },
+      "gastronomy": {
+        "title": "Pro Gastronomy",
+        "desc": "Our kitchen combines stadium classics with first-class gourmet ingredients."
+      },
+      "community": {
+        "title": "Fan Community",
+        "desc": "A vibrant atmosphere where rivalry is healthy and passion is shared."
+      }
+    }
+  },
+  "menu": {
+    "title": "OUR",
+    "titleHighlight": "MENU",
+    "all": "ALL",
+    "searchPlaceholder": "Search dish...",
+    "offer": "OFFER",
+    "addToOrder": "Add to Order",
+    "noProducts": "No products found"
+  },
+  "home": {
+    "stars": "OUR",
+    "starsHighlight": "STARS",
+    "wingsCombo": "Wings Combo",
+    "stadiumBurger": "Stadium Burger",
+    "craftBeerFlight": "Craft Beer Flight",
+    "viewFullMenu": "VIEW FULL MENU"
+  },
+  "aboutComponent": {
+    "title": "STADIUM",
+    "subtitle": "Step into the Barracos Bar experience. High-octane energy meets VIP sophistication in every corner of our arena.",
+    "testimonialsTitle": "GOAL CHEERS"
+  },
+  "reservationSteps": {
+    "title": "YOUR SEAT",
+    "titleHighlight": "RESERVED",
+    "subtitle": "The best stadium experience happens at Barracos Bar. Follow these steps to secure your spot for the most important play of the night.",
+    "steps": {
+      "step1": {
+        "title": "1. ARRIVE AT THE STADIUM",
+        "description": "We're located in the heart of the sports district. We have ample secure parking for your convenience."
+      },
+      "step2": {
+        "title": "2. REQUEST YOUR TABLE",
+        "description": "Our host team will welcome you and assign you the best spot facing our giant screens."
+      },
+      "step3": {
+        "title": "3. LIVE THE PASSION",
+        "description": "Enjoy the best sports food and ice-cold beers while cheering for your favorite team live."
+      }
+    },
+    "howToGetThere": "HOW TO GET THERE →",
+    "viewMenu": "VIEW MENU",
+    "gameZone": "GAME ZONE",
+    "address": "Av. Principal de los Deportes, Edificio Barracos Bar",
+    "hours": "Open daily from 12:00 PM to 2:00 AM"
+  },
+  "admin": {
+    "products": "Products",
+    "newProduct": "New Product",
+    "editProduct": "Edit Product",
+    "saveProduct": "Save Product",
+    "nameEs": "Name (ES)",
+    "nameEn": "Name (EN)",
+    "descriptionEs": "Description (ES)",
+    "price": "Price",
+    "category": "Category",
+    "selectCategory": "Select...",
+    "productImage": "Product Image",
+    "dragImage": "Drag an image here",
+    "clickToBrowse": "or click to browse",
+    "uploading": "Uploading...",
+    "offer": "Offer",
+    "active": "Active",
+    "inactive": "Inactive",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "categories": "Categories",
+    "newCategory": "New Category",
+    "editCategory": "Edit Category",
+    "saveCategory": "Save Category",
+    "internalName": "Internal Name",
+    "displayName": "Display Name",
+    "deleteCategory": "Delete this category?",
+    "deleteProduct": "Delete this product?",
+    "saveError": "Error saving",
+    "deleteError": "Error deleting",
+    "settings": "Business Settings",
+    "generalInfo": "General Information",
+    "contactRegion": "Contact & Region",
+    "businessName": "Business Name",
+    "address": "Address",
+    "phone": "Phone",
+    "currency": "Currency",
+    "email": "Email",
+    "changePassword": "Change Admin Password",
+    "passwordPlaceholder": "Leave blank to keep current",
+    "saving": "Saving...",
+    "saveSettings": "Save Settings",
+    "settingsSaved": "Settings saved successfully",
+    "settingsError": "Error saving settings",
+    "tables": "Table Management",
+    "tablesSubtitle": "Manage restaurant tables",
+    "newTable": "New Table",
+    "tableNumber": "Table Number",
+    "capacity": "Capacity",
+    "location": "Location",
+    "locationPlaceholder": "e.g. Terrace, Interior, Bar...",
+    "isBarChair": "Is bar chair",
+    "update": "Update",
+    "create": "Create",
+    "deleteTable": "Are you sure you want to delete this table?",
+    "available": "Available",
+    "occupied": "Occupied",
+    "reserved": "Reserved",
+    "reservations": "Reservations",
+    "viewAll": "View all",
+    "noReservations": "No reservations",
+    "table": "Table",
+    "client": "Client",
+    "contact": "Contact",
+    "date": "Date",
+    "schedule": "Schedule",
+    "comments": "Comments",
+    "cancelReservation": "Cancel",
+    "confirmCancel": "Cancel this reservation?",
+    "people": "people",
+    "barChair": "Bar Chair",
+    "adminPanel": "Admin Panel",
+    "logout": "Log Out",
+    "password": "Password",
+    "restrictedArea": "Restricted area for authorized personnel",
+    "verifying": "Verifying...",
+    "enterStadium": "Enter the Stadium",
+    "wrongPassword": "Incorrect password",
+    "loginError": "Error logging in"
+  },
+  "reviews": {
+    "review1": {
+      "name": "CARLOS 'THE BULL' R.",
+      "role": "{{businessName}} SUPER FAN",
+      "text": "The best atmosphere to watch the Champions! The {{businessName}} wings are out of this world."
+    },
+    "review2": {
+      "name": "SOFÍA MÉNDEZ",
+      "role": "{{businessName}} VIP MEMBER",
+      "text": "The service is super fast even when the bar is packed. Cheering a goal here is unique!"
+    },
+    "review1Es": {
+      "name": "CARLOS 'EL TORO' R.",
+      "role": "FANÁTICO DE {{businessName}}",
+      "text": "¡La mejor atmósfera para ver la Champions! Las alitas con salsa {{businessName}} son de otro planeta."
+    },
+    "review2Es": {
+      "name": "SOFÍA MÉNDEZ",
+      "role": "SOCIA VIP {{businessName}}",
+      "text": "El servicio es rapidísimo incluso cuando el bar está a reventar. ¡Gritar un gol aquí es único!"
+    }
   }
 }
