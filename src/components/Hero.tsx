@@ -89,7 +89,7 @@ const Hero = () => {
           />
 
           {/* Content */}
-          <div className="absolute inset-0 z-20 flex items-center">
+          <div className="absolute inset-0 z-20 flex items-center pt-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 border border-stadium-orange/50 px-3 py-1 rounded-sm bg-stadium-orange/10">
