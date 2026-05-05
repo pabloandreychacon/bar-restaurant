@@ -1,4 +1,5 @@
 import { Trophy, Users, Tv, GlassWater } from 'lucide-react';
+import { SEO } from '../components/SEO';
 import { useTranslation } from 'react-i18next';
 
 const AboutPage = () => {
@@ -13,6 +14,10 @@ const AboutPage = () => {
 
   return (
     <div className="bg-stadium-dark min-h-screen">
+      <SEO
+        title="About Us | Barracos Bar"
+        description="Learn about Barracos Bar - the premier sports bar with 15+ screens, 250+ capacity, daily events, and 20+ craft beers."
+      />
       {/* Header Section */}
       <section className="relative h-96 flex items-center justify-center overflow-hidden group">
         <div className="absolute bg-black/70 z-10" />

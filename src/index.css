@@ -5,7 +5,7 @@
   --color-stadium-yellow: #ffc107;
   --color-stadium-dark: #0a0a0a;
   --color-stadium-grey: #1a1a1a;
-  
+
   --font-display: "Impact", "Oswald", sans-serif;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 
@@ -13,13 +13,23 @@
   --animate-fade-in: fade-in 0.8s ease-out forwards;
 
   @keyframes slow-zoom {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
   }
 
   @keyframes fade-in {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
@@ -46,4 +56,16 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--color-stadium-orange);
   border-radius: 4px;
+}
+
+/* Safe area padding for mobile devices with notches */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0.5rem);
+}
+
+/* Ensure bottom navigation doesn't overlap content on mobile */
+@media (max-width: 1023px) {
+  main {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
 }

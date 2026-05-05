@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { SEO } from '../components/SEO';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../lib/supabase';
 import { defaultSettings, getCurrencySymbol, getSettings } from '../utils/settings';
@@ -69,6 +70,10 @@ const ProductsPage = () => {
 
   return (
     <div className="bg-stadium-dark min-h-screen">
+      <SEO
+        title="Menu | Barracos Bar - Food & Drinks"
+        description="Explore our full menu of craft beers, cocktails, delicious food, and more. Find your favorite game day specials and offers."
+      />
       {/* Header Section */}
       <section className="relative h-96 flex items-center justify-center overflow-hidden group">
         <div className="absolute inset-0 bg-black/60 z-10" />

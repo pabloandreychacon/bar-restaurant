@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { SEO } from '../components/SEO';
 import { Mail, Phone, MapPin, Send, MessageSquare, Calendar, Clock, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getSettings } from '../utils/settings';
@@ -74,6 +75,10 @@ const ContactPage = () => {
 
   return (
     <div className="bg-stadium-dark min-h-screen">
+      <SEO
+        title="Contact Us | Barracos Bar"
+        description="Get in touch with Barracos Bar. Find our location, hours, phone number, and send us a message for reservations or events."
+      />
       {/* Header Section */}
       <section className="relative h-96 flex items-center justify-center overflow-hidden group">
         <div className="absolute inset-0 bg-black/60 z-10" />

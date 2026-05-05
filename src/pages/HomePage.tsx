@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import ReservationSteps from '../components/ReservationSteps';
+import { SEO } from '../components/SEO';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
@@ -49,6 +50,10 @@ const HomePage = () => {
 
   return (
     <div className="animate-fade-in">
+      <SEO
+        title="Barracos Bar | Sports Bar & Restaurant"
+        description="The ultimate sports bar & restaurant experience. Enjoy craft beers, delicious food, live sports on big screens, and a vibrant atmosphere."
+      />
       <Hero />
       <About />
       <ReservationSteps />

@@ -15,7 +15,6 @@ const Admin = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   useEffect(() => {
     const auth = localStorage.getItem('admin_auth');
@@ -96,95 +95,113 @@ const Admin = () => {
   }
 
   return (
-    <div className="min-h-screen flex bg-stadium-dark pt-20">
-      {/* Mobile Menu Button */}
-      <div className="lg:hidden fixed top-20 left-0 right-0 bg-stadium-grey border-b border-white/5 z-20">
-        <div className="p-4">
-          <button
-            onClick={() => setShowMobileMenu(!showMobileMenu)}
-            className="flex items-center gap-3 text-white font-bold"
-          >
-            <Settings size={20} />
-            {showMobileMenu ? 'CERRAR MENÚ' : 'MENÚ ADMIN'}
-          </button>
-        </div>
-      </div>
-
-      {/* Sidebar */}
-      <aside className={`${showMobileMenu ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 fixed lg:sticky top-20 lg:top-20 left-0 bottom-0 w-64 bg-stadium-grey border-r border-white/5 flex flex-col z-10 transition-transform duration-300 h-[calc(100vh-5rem)]`}>
-        <div className="p-4 lg:p-8 border-b border-white/5">
-          <h2 className="text-lg lg:text-xl font-display font-bold text-white tracking-tighter">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-stadium-dark">
+      {/* Desktop Sidebar */}
+      <aside className="hidden lg:flex w-64 bg-stadium-grey border-r border-white/5 flex-col sticky top-0 self-start h-screen">
+        <div className="p-8 border-b border-white/5">
+          <h2 className="text-xl font-display font-bold text-white tracking-tighter">
             ADMIN<span className="text-stadium-orange">PANEL</span>
           </h2>
         </div>
 
-        <nav className="flex-grow p-2 lg:p-4 space-y-2 mt-4 overflow-y-auto">
+        <nav className="flex-grow p-4 space-y-2 mt-4">
           <button
-            onClick={() => {
-              setActiveTab('products');
-              setShowMobileMenu(false);
-            }}
-            className={`w-full flex items-center gap-2 lg:gap-3 px-3 lg:px-4 py-3 rounded-sm font-bold text-xs lg:text-sm transition-all ${activeTab === 'products' ? 'bg-stadium-orange text-black' : 'text-gray-400 hover:bg-white/5 hover:text-white'
+            onClick={() => setActiveTab('products')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-sm font-bold text-sm transition-all ${activeTab === 'products' ? 'bg-stadium-orange text-black' : 'text-gray-400 hover:bg-white/5 hover:text-white'
               }`}
           >
-            <Package size={16} className="flex-shrink-0" />
-            <span className="truncate">PRODUCTOS</span>
+            <Package size={18} />
+            PRODUCTOS
           </button>
           <button
-            onClick={() => {
-              setActiveTab('categories');
-              setShowMobileMenu(false);
-            }}
-            className={`w-full flex items-center gap-2 lg:gap-3 px-3 lg:px-4 py-3 rounded-sm font-bold text-xs lg:text-sm transition-all ${activeTab === 'categories' ? 'bg-stadium-orange text-black' : 'text-gray-400 hover:bg-white/5 hover:text-white'
+            onClick={() => setActiveTab('categories')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-sm font-bold text-sm transition-all ${activeTab === 'categories' ? 'bg-stadium-orange text-black' : 'text-gray-400 hover:bg-white/5 hover:text-white'
               }`}
           >
-            <Layers size={16} className="flex-shrink-0" />
-            <span className="truncate">CATEGORÍAS</span>
+            <Layers size={18} />
+            CATEGORÍAS
           </button>
           <button
-            onClick={() => {
-              setActiveTab('tables');
-              setShowMobileMenu(false);
-            }}
-            className={`w-full flex items-center gap-2 lg:gap-3 px-3 lg:px-4 py-3 rounded-sm font-bold text-xs lg:text-sm transition-all ${activeTab === 'tables' ? 'bg-stadium-orange text-black' : 'text-gray-400 hover:bg-white/5 hover:text-white'
+            onClick={() => setActiveTab('tables')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-sm font-bold text-sm transition-all ${activeTab === 'tables' ? 'bg-stadium-orange text-black' : 'text-gray-400 hover:bg-white/5 hover:text-white'
               }`}
           >
-            <Table size={16} className="flex-shrink-0" />
-            <span className="truncate">MESAS</span>
+            <Table size={18} />
+            MESAS
           </button>
           <button
-            onClick={() => {
-              setActiveTab('settings');
-              setShowMobileMenu(false);
-            }}
-            className={`w-full flex items-center gap-2 lg:gap-3 px-3 lg:px-4 py-3 rounded-sm font-bold text-xs lg:text-sm transition-all ${activeTab === 'settings' ? 'bg-stadium-orange text-black' : 'text-gray-400 hover:bg-white/5 hover:text-white'
+            onClick={() => setActiveTab('settings')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-sm font-bold text-sm transition-all ${activeTab === 'settings' ? 'bg-stadium-orange text-black' : 'text-gray-400 hover:bg-white/5 hover:text-white'
               }`}
           >
-            <Settings size={16} className="flex-shrink-0" />
-            <span className="truncate">CONFIGURACIÓN</span>
+            <Settings size={18} />
+            CONFIGURACIÓN
           </button>
         </nav>
 
-        <div className="p-2 lg:p-4 border-t border-white/5">
+        <div className="p-4 border-t border-white/5">
           <button
             onClick={handleLogout}
-            className="w-full flex items-center gap-2 lg:gap-3 px-3 lg:px-4 py-3 rounded-sm font-bold text-xs lg:text-sm text-red-500 hover:bg-red-500/10 transition-all"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-sm font-bold text-sm text-red-500 hover:bg-red-500/10 transition-all"
           >
-            <LogOut size={16} className="flex-shrink-0" />
-            <span className="truncate">CERRAR SESIÓN</span>
+            <LogOut size={18} />
+            {t('admin.logout').toUpperCase()}
           </button>
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-grow lg:ml-0 lg:ml-64 p-4 lg:p-12 mt-16 lg:mt-0">
-        <div className="w-full">
+      <main className="flex-grow p-4 md:p-6 lg:p-12 pb-24 lg:pb-12">
+        <div className="max-w-7xl mx-auto">
           {activeTab === 'products' && <AdminProducts />}
           {activeTab === 'categories' && <AdminCategories />}
           {activeTab === 'tables' && <AdminTables />}
           {activeTab === 'settings' && <AdminSettings />}
         </div>
       </main>
+
+      {/* Mobile Bottom Navigation */}
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-stadium-grey border-t border-white/10 flex justify-around items-center z-50 pb-safe">
+        <button
+          onClick={() => setActiveTab('products')}
+          className={`flex flex-col items-center justify-center py-3 px-1 flex-1 transition-all ${activeTab === 'products' ? 'text-stadium-orange' : 'text-gray-400'
+            }`}
+        >
+          <Package size={20} />
+          <span className="text-[10px] font-bold mt-1 uppercase tracking-wide">Productos</span>
+        </button>
+        <button
+          onClick={() => setActiveTab('categories')}
+          className={`flex flex-col items-center justify-center py-3 px-1 flex-1 transition-all ${activeTab === 'categories' ? 'text-stadium-orange' : 'text-gray-400'
+            }`}
+        >
+          <Layers size={20} />
+          <span className="text-[10px] font-bold mt-1 uppercase tracking-wide">Categorías</span>
+        </button>
+        <button
+          onClick={() => setActiveTab('tables')}
+          className={`flex flex-col items-center justify-center py-3 px-1 flex-1 transition-all ${activeTab === 'tables' ? 'text-stadium-orange' : 'text-gray-400'
+            }`}
+        >
+          <Table size={20} />
+          <span className="text-[10px] font-bold mt-1 uppercase tracking-wide">Mesas</span>
+        </button>
+        <button
+          onClick={() => setActiveTab('settings')}
+          className={`flex flex-col items-center justify-center py-3 px-1 flex-1 transition-all ${activeTab === 'settings' ? 'text-stadium-orange' : 'text-gray-400'
+            }`}
+        >
+          <Settings size={20} />
+          <span className="text-[10px] font-bold mt-1 uppercase tracking-wide">Config</span>
+        </button>
+        <button
+          onClick={handleLogout}
+          className="flex flex-col items-center justify-center py-3 px-1 flex-1 text-red-500 transition-all"
+        >
+          <LogOut size={20} />
+          <span className="text-[10px] font-bold mt-1 uppercase tracking-wide">Salir</span>
+        </button>
+      </nav>
     </div>
   );
 };

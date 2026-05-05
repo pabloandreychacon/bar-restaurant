@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { SEO } from '../components/SEO';
 import { Users, Check } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getAvailableTables, getAvailableTablesForDateTime, createReservation, deleteOldReservations, type RestaurantTable, type Reservation } from '../utils/reservations';
@@ -126,6 +127,10 @@ const ReservationsPage = () => {
 
   return (
     <div className="bg-stadium-dark min-h-screen">
+      <SEO
+        title="Reservations | Barracos Bar"
+        description="Book your table at Barracos Bar. Make online reservations for game days, special events, or a night out with friends."
+      />
       {/* Header Section */}
       <section className="relative h-96 flex items-center justify-center overflow-hidden group">
         <div className="absolute inset-0 bg-black/60 z-10" />
