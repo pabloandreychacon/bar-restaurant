@@ -111,7 +111,7 @@ const Hero = () => {
                   {currencySymbol}{product.Price}
                 </p>
 
-                <p className="text-gray-400 text-lg max-w-md leading-relaxed">
+                <p className="text-lg md:text-xl text-gray-200 mb-8 drop-shadow-md leading-relaxed max-w-md">
                   {parseBilingualText(product.Description, i18n.language as 'es' | 'en')}
                 </p>
 
