@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { getSettings } from '../utils/settings';
-import { Anchor } from 'luna-components-library';
+import { Anchor, Button, ProgressBar } from 'luna-components-library';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -104,7 +104,7 @@ const Footer = () => {
       </div>
 
       <div className="flex justify-center mt-8">
-        <p className="text-gray-500 text-xs">{t('footer.createdBy')} {<Anchor />}</p>
+        <p className="text-gray-500 text-xs">{t('footer.createdBy')} <Anchor /></p>
       </div>
     </footer>
   );
