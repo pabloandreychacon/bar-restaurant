@@ -90,7 +90,7 @@ export function AdminCategories() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="mt-16 space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h2 className="text-xl sm:text-2xl font-display font-bold text-white uppercase tracking-wider flex items-center gap-2">
           <Layers className="text-stadium-orange" />
@@ -102,9 +102,9 @@ export function AdminCategories() {
             setFormData({ Name: '', DisplayName: '', Active: true });
             setIsModalOpen(true);
           }}
-          className="bg-stadium-orange text-black px-3 sm:px-4 py-2 rounded-sm font-bold flex items-center gap-2 hover:bg-white transition-all text-sm sm:text-base"
+          className="bg-stadium-orange text-black px-3 sm:px-4 py-2 rounded-sm font-bold flex items-center gap-2 hover:bg-white transition-all"
         >
-          <Plus size={16} className="sm:size-20" />
+          <Plus size={20} />
           <span className="truncate">{t('admin.newCategory').toUpperCase()}</span>
         </button>
       </div>

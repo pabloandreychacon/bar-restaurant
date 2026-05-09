@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, Edit2, Trash2, Users, MapPin, CheckCircle, AlertCircle, Armchair, Calendar, Phone, Mail, Clock } from 'lucide-react';
+import { Plus, Edit2, Trash2, Users, MapPin, CheckCircle, AlertCircle, Armchair, Calendar, Phone, Mail, Clock, Utensils } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getTablesWithStatus, createTable, updateTable, deleteTable, type RestaurantTableWithStatus, type CreateRestaurantTable } from '../../utils/tables';
 import { getReservations, cancelReservation, type ReservationWithTable } from '../../utils/reservations';
@@ -160,12 +160,15 @@ const AdminTables = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="mt-16 space-y-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div className="min-w-0 flex-1">
-          <h1 className="text-2xl sm:text-3xl font-display font-bold text-white truncate">{t('admin.tables').toUpperCase()}</h1>
-          <p className="text-gray-400 mt-2 text-sm sm:text-base truncate">{t('admin.tablesSubtitle')}</p>
+          <h2 className="text-xl sm:text-2xl font-display font-bold text-white uppercase tracking-wider flex items-center gap-2">
+            <Utensils className="text-stadium-orange" />
+            {t('admin.tables').toUpperCase()}
+          </h2>
+          {/* <p className="text-gray-400 mt-2 text-sm sm:text-base truncate">{t('admin.tablesSubtitle')}</p> */}
         </div>
         <button
           onClick={() => {
@@ -173,9 +176,9 @@ const AdminTables = () => {
             setEditingTable(null);
             resetForm();
           }}
-          className="flex items-center gap-2 bg-stadium-orange text-black px-4 sm:px-6 py-2 sm:py-3 rounded-sm font-bold hover:bg-white transition-all text-sm sm:text-base w-full sm:w-auto"
+          className="flex items-center gap-2 bg-stadium-orange text-black px-4 py-2 rounded-sm font-bold hover:bg-white transition-all"
         >
-          <Plus size={16} className="sm:size-20" />
+          <Plus size={20} />
           <span className="truncate">{t('admin.newTable').toUpperCase()}</span>
         </button>
       </div>

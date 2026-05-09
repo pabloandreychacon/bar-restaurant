@@ -181,11 +181,11 @@ export function AdminProducts() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-display font-bold text-white uppercase tracking-wider flex items-center gap-2">
+    <div className="mt-16 space-y-6">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <h2 className="text-xl sm:text-2xl font-display font-bold text-white uppercase tracking-wider flex items-center gap-2">
           <Package className="text-stadium-orange" />
-          {t('admin.products').toUpperCase()}
+          {t('Products').toUpperCase()}
         </h2>
         <button
           onClick={() => {
